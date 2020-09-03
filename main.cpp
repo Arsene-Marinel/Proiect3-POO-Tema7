@@ -25,6 +25,7 @@ fost distribuiți în roluri principale.
 #include <Actor.h>
 #include <Regizor.h>
 #include <FirmaDistributie.h>
+#include <utility>
 using namespace std;
 
 int main()
@@ -50,6 +51,7 @@ int main()
     cout << z.salariu();
     */
 
+    /**
     vector<Personal> v;
     int n;
     cin >> n;
@@ -62,5 +64,21 @@ int main()
     vector<Personal>::iterator i;
     for(i = v.begin(); i != v.end(); i++)
         cout << *i << '\n';
+    */
+
+    vector<pair<Personal, int> > v;
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++)
+    {
+        Personal a;
+        cin >> a;
+        v.push_back(make_pair(a, a.bonus()));
+    }
+    for(int i = 0; i < v.size(); i++)
+    {
+        v[0].first.afisare();
+        cout << v[0].second << '\n';
+    }
     return 0;
 }
